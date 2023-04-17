@@ -7,8 +7,7 @@ Contact the following friends and family directly before announcing it on
 Twitter...
 
 - Signal: Basically all contacts who I have chats with
-  > TODO: This
-- Email: Contact list in Nextcloud
+- Email: Contact list in Nextcloud (TODO)
 
 Then you can use my computer or phone to hit Twitter up a final tweet:
 
@@ -28,13 +27,12 @@ help when something breaks.
 As you know, I SimpleLogin.io to alias most of my e-mails. Go to
 [dashy.paynepride.com](dashy.paynepride.com) and follow a link to the
 SimpleLogin dashboard. If you need to login you will need to check my 2FA app
-on my phone (probably Microsoft Authenticator) for a code for simplelogin.
+on my phone (Microsoft Authenticator or Aegis) for a code for simplelogin.
 
 The SimpleLogin dashboard will show you all my email addresses - they all
 funnel to my main emails which are logged in SimpleLogin `Mailboxes`
 
-Add my ProtonMail account to your phone and you will get any emails to any
-address in SimpleLogin
+SimpleLogin is a service we use through Proton so you can continue to use it no problem. Proton has a subscription paid for through a Privacy.com card. As of April 2023 we have an organization subscription.
 
 ### Domains
 
@@ -52,15 +50,16 @@ proper. Jeremy can help with this
 
 ### Subscriptions
 
-- Twitch.tv – Nothing autorenews, my Twitch Prime is connected to Amazon
+- Twitch.tv – Twitch Prime through Amazon Prime and I have 1 recurring subscription to ThePrimeagen's channel. Payment through Privacy.com card
 - Amazon Prime - Autorenews on a privacy.com card
 - Netflix - Blocks
 - Spotify - Autorenews on a privacy.com card
-  - Just keep this account since it’s a family account
+  - This is a family account so convene with the other users about what to do
 - Proton
   - I suggest keeping the Proton stuff. It's autorenewed on a privacy.com card.
-  - If I remembered to do it I put all of our non-media stuff in Proton Drive just like Nextcloud
 - Playstation Plus - cancel this - login is in Bitwarden
+- Instacart - TODO
+- DoorDash - Autorenews through privacy.com card
 
 ### Homelabs
 
@@ -68,7 +67,7 @@ proper. Jeremy can help with this
 
 Jeremy will be the biggest help here
 
-1. All the services I run can be managed at portainer.paynepride.com. Remember that you have to be on our network (wireguard, local, or tailscale) to login.
+1. All the services I run can be managed at portainer.paynepride.com EXCEPT FOR PAPERLESS. Remember that you have to be on our network (wireguard, local, or tailscale) to login.
 
    - Keep the Nextcloud, Dashy, and Bitwarden containers up until Jeremy says they can go down
    - Go through the other services one by one and turn them off (do this like at the end)
@@ -80,11 +79,11 @@ Jeremy will be the biggest help here
 3. Go through MonicaDB and save what you find relevant somewhere else
 
 4. Most of our important documents are going to be in paperless-ngx. The link
-   is on Dashy - follow it and save files as you need to
+   is on Dashy - follow it and save files as you need to.
 
 ### Wireless network
 
-- Jeremy can help setup a regular ol' wifi router. Our Netgear Orbi is being used as Access Points right now, but you can just reset them and use it as the router like we did for a while.
+- Jeremy can help setup a regular ol' wifi router. Our Netgear Orbi is being used as Access Points right now, but you can just reset them and use it as the router like we did for a while. (TODO: actually not done yet, Orbi still being used as the router)
 
 ### Restarting network services
 
@@ -92,18 +91,13 @@ Jeremy will be the biggest help here
 - If that doesn't work, unplug the router, which is probably at this point going to be the Netgear Orbi, and plug it back in.
 - If that doesn't work there's probably an actual outage
 
-### Home automation / IoT (Hue, etc)
-
-If you change the name of the wifi (like if you move and use the ISP's built-in wifi), then you will have to reconnect...
-
 # TODO: THIS
 
 ### Social Media accounts
 
-- Everything can be logged in with Bitwarden + the multi-factor apps on my phone (Microsoft Authenticator or Yubi Authenticator) or my YubiKey
+- Everything can be logged in with Bitwarden + the multi-factor apps on my phone (Microsoft Authenticator or Yubi Authenticator, or Aegis) or my YubiKey
 - Don’t close Twitter for a few years
   - If you sell my Twitter, make it worth your time, like 1 million then ask a friend to delete all my old posts
-  - This will probably require some sort of service because Twitter makes things hard
 - Double check that my Facebook is 100% deactivated (login in Bitwarden)
 
 ### 2FA
@@ -114,31 +108,27 @@ or "MFA". They all mean the same thing.
 
 - I use two MFA apps on my phone
   - YubiAuthenticator
-  - Microsoft Authenticator
+  - Microsoft Authenticator (slowly moving everything over to Aegis)
+  - Aegis
 - Remember to avoid using SMS for 2FA if it's possible, because it's less safe
 
 ### Cloud Subscriptions
 
 SUPER IMPORTANT because these bills can get big quickly
 
+**I don't have anything running in the cloud right now but I'm keeping this section in case I do**
+
 ### Online Storage & Photo Backups
 
 **Photo Backups**
 
-- All our photos are in Nextcloud. You'll probably want to move them to something easier like Amazon or something. I'll leave that up to you
-- You can/should copy all those photos to an external hard drive too and plan to keep that updated if you want to maintain storing new photos
+- All our photos are in Nextcloud. I recommend keeping them there since your phone auto backs up to it. This is dependent on the server though. If you want to move them somewhere then I recommend ProtonDrive.
 
 **Cloud Storage**
 
 # TODO: Regularly tarball or something my paperless-ngx stack and data
 
 # TODO: figure out cloud storage for what makes sense, like docs
-
-We have some documents stored on [cloud storage provider], I also have lots of things stored there that you might want to view, TV License receipts, renewal documents for the car things like that.
-
-- You can login to the web version [here]() details are in KeePass
-- From here you can download individual files, change the password etc.
-- Even if you don't use this it is a good idea to keep it as some of the files you might need in the future.
 
 ### Local Storage & Backups
 
@@ -165,6 +155,12 @@ don't just throw it in the bin.
 
 This is the section where money lands or exists.
 
+### YNAB
+
+1. YNAB is on a Windows Virtual Machine hosted on the NAS. Jeremy can help with moving the VM somewhere (ZFS dataset /tank/encrypted/vms/)
+2. YNAB allows 1 desktop install and 2 connected device via Dropbox for automatic syncing. If you want to just install it on a laptop or the regular desktop you use then you'll find the installer on the NAS in /tank/encrypted/nas/dump and the product key is in Bitwarden. Remember that we use an ancient version of YNAB so the installer isn't available anywhere else. Also for the app if you need to reinstall it you have to use the .apk that's also on the NAS which has updated support from the community for Dropbox syncing.
+3. I access the windows VM through remmina. The login is in bitwarden
+
 ### Bank Accounts and Virtual Currency
 
 All login info will be in Bitwarden
@@ -179,13 +175,14 @@ All login info will be in Bitwarden
   - Auto payments are through CEFCU
 - Crypto
   - Just call it a loss...
-  - Sell everything in crypto.com and Voyager app then transfer USD to the linked bank account - probably CEFU
 - Privacy cards
   - Most of our bills and such are handled with privacy.com cards.
   - Login to <https://www.privacy.com> (see Bitwarden) and you'll see a dashboard with all the cards. Remember that they are single-merchant only... so the Twitch card is literally only for Twitch and in fact any card will be declined if it's ran with a merchant that it wasnt' setup to be for
 - Venmo
   - On my phone - you can transfer all the money to an account and close my venmo
 - PayPal
+  - Login in Bitwarden
+- Fox Communities Credit Union
   - Login in Bitwarden
 
 ### Life Insurance
@@ -200,21 +197,20 @@ Literally just call Zack
 
 # TODO
 
-This is the section with bills and things you gotta pay. Everything is on auto-pay so no stress. Just keep money in Fak Bank and United States Bank.
-
 ### Ongoing Insurance Accounts
 
 - Auto insurance technically with Traveler's, through Mercer via my work
 - Health insurance was through work - hopefully an attorney can help you with this
 
-### Credit Cards and Loans
+### Credit Cards
 
-# TODO
+- YNAB has each of our cards with all the scheduled transactions on each one. Logins in Bitwarden
 
 ### Cell Phone & Internet
 
 - Verizon (login in Bitwarden)
 - Privacy.com card that autopays
+- Internet Service Provider is Spectrum (login in Bitwarden)
 
 ### Bill Auto Pay
 
