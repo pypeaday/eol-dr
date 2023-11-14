@@ -24,7 +24,7 @@ help when something breaks.
 
 ### Emails
 
-As you know, I SimpleLogin.io to alias most of my e-mails. Go to
+As you know, I use SimpleLogin.io to alias most of my e-mails. Go to
 [dashy.paynepride.com](dashy.paynepride.com) and follow a link to the
 SimpleLogin dashboard. If you need to login you will need to check my 2FA app
 on my phone (Microsoft Authenticator or Aegis) for a code for simplelogin.
@@ -36,17 +36,14 @@ SimpleLogin is a service we use through Proton so you can continue to use it no 
 
 ### Domains
 
-- All of my domains are managed in CloudFlare right now
-- My domains renew through Namecheap automatically via a card in [privacy.com](https://privacy.com)
+- All of my domains are managed in Cloudflare right now. There is a link in dashy to cloudflare homepage. You only need to care about this if you're using `paynepride.com` for any email. For now, and for as long as you want, just keep the autorenewal going - it's like $10/year or something.
+- My domains renew through Namecheap automatically via a card in [privacy.com](https://privacy.com).
 
 ### Password Managers
 
 You know how to use this since we've incorporated it into our lives.
 
-Bitwarden is however still self-hosted, so you should sign up for the hosted
-service at www.bitwarden.com and migrate our data over there - there should be
-a simple way to export our vault to JSON and just upload it to Bitwarden
-proper. Jeremy can help with this
+Note: There's a chance there's some logins owned by my user and not the home organization, my bitwarden login information is in bitwarden so you can find it there and login as me to double check
 
 ### Subscriptions
 
@@ -58,7 +55,7 @@ proper. Jeremy can help with this
 - Proton
   - I suggest keeping the Proton stuff. It's autorenewed on a privacy.com card.
 - Playstation Plus - cancel this - login is in Bitwarden
-- Instacart - TODO
+- Instacart - Autorenews on a privacy.com card
 - DoorDash - Autorenews through privacy.com card
 
 ### Homelabs
@@ -67,9 +64,10 @@ proper. Jeremy can help with this
 
 Jeremy will be the biggest help here
 
-1. All the services I run can be managed at portainer.paynepride.com EXCEPT FOR PAPERLESS. Remember that you have to be on our network (wireguard, local, or tailscale) to login.
+1. All the services I run can be managed at portainer.paynepride.com. Remember that you have to be on our network (wireguard, local, or tailscale) to login.
 
-   - Keep the Nextcloud, Dashy, and Bitwarden containers up until Jeremy says they can go down
+   - Keep the Nextcloud, Dashy, Jellyfin, and Paperless containers up.
+   - You'll want to move anything from Nextcloud probably to Proton Drive and use that like Google Drive. The Proton subscription autorenews on a privacy.com card so I'd say lean into it. You can keep Jellyfin up, maybe Hall will know enough to manage it after I died? You should login to paperless (link in Dashy, only available on network) and get all the documents out of it. @Jeremy - you could copy the raw pdfs from the filesystem over to nextcloud... maybe I'll have a python script to do that [here???](TODO)
    - Go through the other services one by one and turn them off (do this like at the end)
 
 2. Church uses Nextcloud. The data is on 1 or 2 computers at church so they
@@ -83,12 +81,12 @@ Jeremy will be the biggest help here
 
 ### Wireless network
 
-- Jeremy can help setup a regular ol' wifi router. Our Netgear Orbi is being used as Access Points right now, but you can just reset them and use it as the router like we did for a while. (TODO: actually not done yet, Orbi still being used as the router)
+- Jeremy can help setup a regular ol' wifi router. Our Netgear Orbi is being used as Access Points right now, but you can just reset them and use it as the router like we did for a while.
+- Otherwise you can keep the OPNSense router up, it's not hard to manage and everything is configured on it for the local network access. Link is on [dashy](dashy.paynepride.com)
 
 ### Restarting network services
 
-- If the Internet goes out, restart the black modem by unplugging it, waiting 10 seconds, plugging it back in.
-- If that doesn't work, unplug the router, which is probably at this point going to be the Netgear Orbi, and plug it back in.
+- If the Internet goes out, restart the router. It's like a desktop pc so you can just hold down the power until it turns off (button's on the front), wait 10 seconds, and start it up again. It takes about 2 minutes to fully power back on.
 - If that doesn't work there's probably an actual outage
 
 # TODO: THIS
@@ -98,7 +96,6 @@ Jeremy will be the biggest help here
 - Everything can be logged in with Bitwarden + the multi-factor apps on my phone (Microsoft Authenticator or Yubi Authenticator, or Aegis) or my YubiKey
 - Don’t close Twitter for a few years
   - If you sell my Twitter, make it worth your time, like 1 million then ask a friend to delete all my old posts
-- Double check that my Facebook is 100% deactivated (login in Bitwarden)
 
 ### 2FA
 
@@ -107,16 +104,10 @@ This is "Two factor authentication" or "2FA" or "Multi factor authentication"
 or "MFA". They all mean the same thing.
 
 - I use two MFA apps on my phone
-  - YubiAuthenticator
   - Microsoft Authenticator (slowly moving everything over to Aegis)
   - Aegis
+  - YubiAuthenticator (TODO: not yet)
 - Remember to avoid using SMS for 2FA if it's possible, because it's less safe
-
-### Cloud Subscriptions
-
-SUPER IMPORTANT because these bills can get big quickly
-
-**I don't have anything running in the cloud right now but I'm keeping this section in case I do**
 
 ### Online Storage & Photo Backups
 
@@ -157,9 +148,9 @@ This is the section where money lands or exists.
 
 ### YNAB
 
-1. YNAB is on a Windows Virtual Machine hosted on the NAS. Jeremy can help with moving the VM somewhere (ZFS dataset /tank/encrypted/vms/)
+1. YNAB is on a Windows Virtual Machine hosted on the NAS. Jeremy can help with moving the VM somewhere (ZFS dataset /tank/encrypted/vms/), or you can just stop using YNAB all together... it's old and installing it anywhere new is tough.
 2. YNAB allows 1 desktop install and 2 connected device via Dropbox for automatic syncing. If you want to just install it on a laptop or the regular desktop you use then you'll find the installer on the NAS in /tank/encrypted/nas/dump and the product key is in Bitwarden. Remember that we use an ancient version of YNAB so the installer isn't available anywhere else. Also for the app if you need to reinstall it you have to use the .apk that's also on the NAS which has updated support from the community for Dropbox syncing.
-3. I access the windows VM through remmina. The login is in bitwarden
+3. I access the windows VM through remmina, username is just `nic`, no password
 
 ### Bank Accounts and Virtual Currency
 
@@ -185,6 +176,8 @@ All login info will be in Bitwarden
 - Fox Communities Credit Union
   - Login in Bitwarden
 
+There's links in Dashy for the girl's 529 plans and all our stuff with Zack. Obviously he/Abri will be the most help here.
+
 ### Life Insurance
 
 We have Life Insurance with Northwestern, but just ask Zack and he'll tell you what you need
@@ -205,12 +198,13 @@ Literally just call Zack
 ### Credit Cards
 
 - YNAB has each of our cards with all the scheduled transactions on each one. Logins in Bitwarden
+- We pay our credit card balance every month so since there's no real debt there isn't much to worry about, just keep doing what we're doing...
 
 ### Cell Phone & Internet
 
 - Verizon (login in Bitwarden)
 - Privacy.com card that autopays
-- Internet Service Provider is Spectrum (login in Bitwarden)
+- Internet Service Provider is TDS (login in Bitwarden)
 
 ### Bill Auto Pay
 
