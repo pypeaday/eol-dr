@@ -67,7 +67,8 @@ Jeremy will be the biggest help here
 1. All the services I run can be managed at portainer.paynepride.com. Remember that you have to be on our network (wireguard, local, or tailscale) to login.
 
    - Keep the Nextcloud, Dashy, Jellyfin, and Paperless containers up.
-   - You'll want to move anything from Nextcloud probably to Proton Drive and use that like Google Drive. The Proton subscription autorenews on a privacy.com card so I'd say lean into it. You can keep Jellyfin up, maybe Hall will know enough to manage it after I died? You should login to paperless (link in Dashy, only available on network) and get all the documents out of it. @Jeremy - you could copy the raw pdfs from the filesystem over to nextcloud... maybe I'll have a python script to do that [here???](TODO)
+   - You'll want to move anything from Nextcloud probably to Proton Drive and use that like Google Drive. The Proton subscription autorenews on a privacy.com card so I'd say lean into it. You can keep Jellyfin up, maybe Hall will know enough to manage it after I died?
+   - Important documents that were kept in paperless can be moved to Proton Drive as well. You can go through paperless one by one for the ones you need, or you can just upload all of them from the NAS - `tank/encrypted/nas/documents/paperless/media`. As of right now I don't know if you want `original` or `archive` but maybe you can just upload all the pdfs in both folders and use a PDF duplicate finder to delete duplicates.
    - Go through the other services one by one and turn them off (do this like at the end)
 
 2. Church uses Nextcloud. The data is on 1 or 2 computers at church so they
